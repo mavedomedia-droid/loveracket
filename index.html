@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Love Racket | 29 December, Queen's Park Lagos</title>
+<meta name="description" content="Lagos' biggest sport-dating event. Tennis, games and speed dating, then live music till 5AM. Play the Love Racket game, top 5 win a huge prize.">
+<meta name="theme-color" content="#1C0131">
+<link rel="canonical" href="https://loveracket.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://loveracket.com/">
+<meta property="og:title" content="Love Racket | 29 December, Queen's Park Lagos">
+<meta property="og:description" content="Lagos' biggest sport-dating event. Play the game, top 5 win a huge prize at the event.">
+<meta property="og:image" content="https://loveracket.com/assets/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/lr.css">
+<script>window.LR_BASE = '';</script>
+<script src="js/config.js"></script>
+</head>
+<body>
+
+<header class="nav" id="nav"></header>
+
+<main id="home">
+
+  <!-- PARTY HERO -->
+  <section class="hero">
+    <div class="deco" aria-hidden="true">
+      <i class="ball" style="left:7%;top:18%"></i>
+      <i class="ht" style="left:86%;top:14%;animation-delay:-2s"></i>
+      <i class="ht" style="left:12%;top:72%;transform:scale(.7);animation-delay:-4s"></i>
+      <i class="ball" style="left:88%;top:66%;animation-delay:-1s;width:16px;height:16px"></i>
+      <i class="ht" style="left:80%;top:92%;animation-delay:-3s;width:14px;height:14px"></i>
+    </div>
+    <div class="wrap">
+      <img class="logo" id="logoImg" alt="Love Racket" src="assets/logo.webp" width="440" height="242">
+      <h1>Lagos' biggest <em>sport-dating</em> event.</h1>
+      <p class="desc">Guests meet through tennis, games and speed dating. The night ends with live music and a party.</p>
+      <div class="facts">
+        <div><span class="k">Date</span><span class="v">29 Dec</span></div>
+        <div><span class="k">Venue</span><span class="v">Queen's Park, Lagos</span></div>
+        <div><span class="k">Time</span><span class="v">From 2PM</span></div>
+      </div>
+      <div class="ctas">
+        <a class="btn y tix-link" href="#">Get tickets</a>
+        <a class="btn pk" href="#play"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><ellipse cx="9.5" cy="9.5" rx="6" ry="7.5" transform="rotate(45 9.5 9.5)"/><path d="M14.5 14.5 20.5 20.5"/><circle cx="19.5" cy="5" r="2.3" fill="#F6DF2A" stroke="none"/></svg>Play the Love Racket</a>
+      </div>
+      <p class="teaser">Top 5 players win a <b>huge prize</b> at the event.</p>
+    </div>
+  </section>
+
+  <!-- THE DAY -->
+  <section class="sec" id="attractions" style="padding-top:20px">
+    <div class="wrap">
+      <div class="st">Side attractions</div>
+      <div class="sh">How the day goes.</div>
+      <div class="day">
+        <div class="card play"><div class="tm">FIRST</div><h3>Games</h3><p>Tennis. Padel. The Dare Wall. Games to break the ice.</p><a class="jump" href="#play">Warm up now, play the game</a><span class="big">01</span></div>
+        <div class="card"><div class="tm">THEN</div><h3>Speed dating</h3><p>Curated and intentional. Where the falling begins.</p><span class="big">02</span></div>
+        <div class="card"><div class="tm">AFTER THAT</div><h3>Party into the night</h3><p>The doors open wider, and the music runs late.</p><span class="big">03</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LINEUP: removed while the lineup is still private. The .acts and .act
+       styles stay in lr.css, so pasting this block back is the only step. -->
+
+  <!-- THE GAME -->
+  <section class="sec playsec" id="play">
+    <div class="wrap">
+      <div class="pg">
+        <div class="phead">
+          <div class="st">The Love Racket game</div>
+          <div class="sh">Top the board, <span style="color:var(--yellow)">win a huge prize.</span></div>
+          <p class="sp">Play, log your score with your email. The top 5 when the board closes win big on 29 December.</p>
+          <p class="sp" style="margin-top:10px"><a class="jump" href="play/index.html">Open the game on its own page</a></p>
+        </div>
+
+        <div class="game" aria-label="Love Racket game">
+          <div class="hud">
+            <div><span class="k">Score</span><b id="score">LOVE</b></div>
+            <div style="text-align:center"><span class="k">Chemistry</span><b id="mult">x1</b></div>
+            <div style="text-align:right"><span class="k">Lives</span><div class="lives" id="lives"></div></div>
+          </div>
+          <div class="stage" id="stage">
+            <canvas id="cv"></canvas>
+            <div class="ov" id="ovStart">
+              <div class="go">Tap to serve</div>
+              <p>Drag to move your racket. Keep the rally alive.</p>
+              <div class="legend">
+                <span><i class="dot" style="background:var(--pink)"></i>Heart +5</span>
+                <span><i class="dot" style="background:var(--green)"></i>Chemistry up</span>
+                <span><i class="dot" style="background:var(--red)"></i>Red flag</span>
+              </div>
+            </div>
+            <div class="ov hidden" id="ovOver">
+              <div class="k">Final score</div>
+              <div id="oScore">LOVE</div>
+              <div id="oBest"></div>
+              <div id="oBody"></div>
+              <button class="btn ghost" id="again" type="button">Play again</button>
+            </div>
+          </div>
+          <div class="who" id="who"></div>
+        </div>
+
+        <div class="board" aria-label="Leaderboard">
+          <div class="bh"><span class="t">Leaderboard <span id="total"></span></span><span class="live"><i></i>Live</span></div>
+          <ol id="top"></ol>
+          <div class="me hidden" id="meRow"></div>
+          <p class="prize">The <b>top 5 players</b> when the board closes win a <b>huge prize</b> at Love Racket.</p>
+          <div class="close"><span>Board closes 27 Dec, 12 noon</span><b id="cd"></b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE RISK OF YOU -->
+  <section class="sec" id="series" style="padding-top:34px">
+    <div class="wrap">
+      <div class="st">Where it started</div>
+      <div class="sh">The series behind the party.</div>
+      <div class="troy">
+        <div class="t">
+          <h3>She doesn't expect to fall first</h3>
+          <p>Win, a flirty 25 year old tennis player, bets she can make Kunle, a stoic 50 year old widower, fall for her. 90 episodes, 90 seconds each, starring Ramsey Nouah.</p>
+          <div class="sig">
+            <img src="assets/troy-logo.png" alt="The Risk of You">
+            <a class="btn troy-link" href="#">Watch the series</a>
+          </div>
+        </div>
+        <div class="pic" data-slot="assets/troy-still.jpg"><img src="assets/troy-still.jpg" alt="The Risk of You"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="sec" style="padding-top:12px">
+    <div class="wrap">
+      <div class="news">
+        <div class="st" style="color:var(--yellow)">Newsletter</div>
+        <div class="sh">Subscribe to our newsletter.</div>
+        <p class="sp">Give us your email for updates, lineup reveals and other fun stuff.</p>
+        <form id="news" novalidate>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+          <label for="nemail" style="position:absolute;left:-9999px">Email</label>
+          <input type="email" id="nemail" name="email" placeholder="Your email" autocomplete="email" inputmode="email">
+          <button class="btn" type="submit">Keep me posted</button>
+        </form>
+        <label class="chk" for="ncross">
+          <input type="checkbox" id="ncross" name="cross">
+          <span>Also send me new episodes of The Risk of You.</span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKETS -->
+  <section class="tix" id="tickets">
+    <div class="wrap">
+      <img class="logo2 lg" alt="Love Racket">
+      <div class="sh">29 December. Queen's Park, Lagos.</div>
+      <p class="sp">Doors open 2PM.</p>
+      <a class="btn y tix-link" href="#">Get tickets</a>
+    </div>
+  </section>
+
+</main>
+
+<footer id="foot"></footer>
+
+<div class="layer" id="layer" role="dialog" aria-modal="true" aria-labelledby="layerT">
+  <div class="box">
+    <div class="ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#1C0131" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5 9.5 18 20 6.5"/></svg></div>
+    <h3 id="layerT">You are on the list</h3>
+    <p>We email when tiers open and when the 500 is close to full.</p>
+    <button class="btn y" type="button">Back to the party</button>
+    <button class="x" type="button">Close</button>
+  </div>
+</div>
+
+<script src="js/partials.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>
