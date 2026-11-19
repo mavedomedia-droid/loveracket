@@ -5,7 +5,7 @@
 window.LR_CONFIG = {
 
   /* ---- the one required value ---- */
-  API_URL: 'https://script.google.com/macros/s/AKfycbwJ6psD2nyNnbzMso_X99Ts4devSe6xcwxKdUdztlVVBCNdTh0Ei6PmoNpsQJgF2jca/exec',
+  API_URL: 'https://script.google.com/macros/s/AKfycbwJ6psD2nyNnbzMso_X99Ts4devSe6xcwxKdUdztlVVBCNdTh0Ei6PmoNpsQJgF2jca/execs',
 
   /* ---- links ---- */
   TICKET_URL: '',       // the real ticket link. Empty = the Get tickets buttons scroll to #tickets instead
@@ -29,6 +29,14 @@ window.LR_CONFIG = {
     instagram: '',
     tiktok:    '',
     x:         ''
+  },
+
+  /* ---- the game court on phones. All four are pixels; null keeps the CSS default ---- */
+  COURT: {
+    side:     8,    // how close the court gets to each screen edge
+    gapBelow: 18,   // breathing room between the court bottom and the fold
+    navH:     54,   // the sticky nav's height
+    hudH:     52    // the score / chemistry / lives row
   },
 
   /* ---- internal ---- */
