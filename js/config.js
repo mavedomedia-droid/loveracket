@@ -5,7 +5,7 @@
 window.LR_CONFIG = {
 
   /* ---- the one required value ---- */
-  API_URL: 'https://script.google.com/macros/s/AKfycbzAT0DadQafPSQe3wxj4RMVMj4fJuK3BB-HGbOR0ch2WwQIjOSyxP-g_eW1wW_cruVa/exec',
+  API_URL: 'https://script.google.com/macros/s/AKfycbwJ6psD2nyNnbzMso_X99Ts4devSe6xcwxKdUdztlVVBCNdTh0Ei6PmoNpsQJgF2jca/exec',
 
   /* ---- links ---- */
   TICKET_URL: '',       // the real ticket link. Empty = the Get tickets buttons scroll to #tickets instead
