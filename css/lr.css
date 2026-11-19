@@ -281,3 +281,48 @@ footer .lgf{height:30px;width:auto;margin:0 auto 14px;display:block;opacity:.85}
   border:1px dashed rgba(255,255,255,.16);border-radius:inherit;text-align:center;padding:12px;pointer-events:none}
 [data-slot]:has(img[src]){background:none}
 [data-slot]:has(img[src])::after{display:none}
+
+/* ── One screenful of game on a phone ──────────────────────────────────
+   Tapping Play scrolls to the game card rather than the heading above it, so
+   the HUD lands under the nav and the court runs down to just short of the
+   bottom edge.
+
+   The four numbers below are the only tuning knobs, and js/config.js can
+   override every one of them at runtime through LR_CONFIG.COURT. Nothing in
+   here needs editing to change the fit.
+
+   The court is locked to 3:4 because the game draws in a fixed 360x480 space
+   and scales by width: a taller box would leave the play area floating in the
+   top portion, and a different play area would make phone scores incomparable
+   with desktop ones on the same leaderboard. Height therefore comes from
+   width, and the only way to fill more screen is to let it go wider.
+
+   svh rather than vh so the browser's own bars are already accounted for and
+   the court never ends up behind them. The vh line is the fallback. */
+:root {
+  --court-side: 8px;    /* how close the court gets to each screen edge */
+  --court-gap:  18px;   /* breathing room under the court */
+  --court-nav:  54px;   /* the sticky nav's height */
+  --court-hud:  52px;   /* the score / chemistry / lives row */
+}
+@media (max-width: 760px) {
+  .game {
+    max-width: none;
+    scroll-margin-top: calc(var(--court-nav) + env(safe-area-inset-top, 0px));
+    margin-inline: calc(max(16px, env(safe-area-inset-left, 0px)) * -1 + var(--court-side))
+                   calc(max(16px, env(safe-area-inset-right, 0px)) * -1 + var(--court-side));
+  }
+  .stage {
+    width: auto;
+    margin-inline: auto;
+    height: min(
+      calc((100vw - (var(--court-side) * 2)) * 4 / 3),
+      calc(100vh - var(--court-nav) - var(--court-hud) - var(--court-gap) - env(safe-area-inset-bottom, 0px))
+    );
+    height: min(
+      calc((100vw - (var(--court-side) * 2)) * 4 / 3),
+      calc(100svh - var(--court-nav) - var(--court-hud) - var(--court-gap) - env(safe-area-inset-bottom, 0px))
+    );
+  }
+  .hud { padding-inline: calc(var(--court-side) + 4px) }
+}
