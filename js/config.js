@@ -8,8 +8,8 @@ window.LR_CONFIG = {
   API_URL: 'https://script.google.com/macros/s/AKfycbzPG_tZ1clC4H-hQ1zlRvQzPjFyAtjeyd6GRY80ycXhDuz_gsbBR3pnOWNfFT-p-OCU/exec',
 
   /* ---- links ---- */
-  TICKET_URL: '',       // the real ticket link. Empty = the Get tickets buttons scroll to #tickets instead
-  TROY_URL:   'https://theriskofyou.com/?utm_source=loveracket&utm_medium=site&utm_campaign=cross',
+  TICKET_URL: 'https://love-racket-event.pv.pro/store/general-admission-ticket',       // the real ticket link. Empty = the Get tickets buttons scroll to #tickets instead
+  TROY_URL:   'https://theriskofyou.co/?utm_source=loveracket&utm_medium=site&utm_campaign=cross',
 
   /* ---- the event. Must match CFG.LR_CUTOFF and CFG.LR_EVENT in Code.gs ---- */
   CUTOFF: '2026-12-27T12:00:00+01:00',   // leaderboard closes
