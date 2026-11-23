@@ -417,3 +417,102 @@ footer .lgf{height:30px;width:auto;margin:0 auto 14px;display:block;opacity:.85}
 .feltbg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,1,49,.40),rgba(28,1,49,.58))}
 .feltbg .wrap{position:relative;z-index:2}
 .feltbg .sh,.feltbg .sp{text-shadow:0 2px 16px rgba(40,0,24,.6)}
+
+/* ═══ homepage restructure ═════════════════════════════════════════ */
+
+/* the logo comes down another 12%, and the photo behind the hero is
+   blurred so the type sitting on it is readable rather than competing
+   with the detail in the picture */
+.hero .logo{width:min(310px,56vw)}
+.hero .shot img{filter:blur(13px) saturate(1.1); transform:scale(1.14)}
+.hero .shot::after{background:
+  radial-gradient(120% 80% at 50% 18%, rgba(28,1,49,.30), rgba(28,1,49,.78) 58%),
+  linear-gradient(180deg, rgba(28,1,49,.72) 0%, rgba(28,1,49,.58) 34%, rgba(28,1,49,.80) 70%, rgba(28,1,49,.97) 90%, var(--bg) 100%)}
+
+.sec.flush{border-top:0}
+.lede{font-size:16.5px; color:#D5CEDC}
+#about .nums2{margin-top:22px; padding:16px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+#about .nums2 b{color:var(--yellow)}
+
+/* ── how the day goes: three acts joined by a line that draws itself ──
+   The connector is a pseudo element on each step, scaled from 0 as the
+   step comes into view, so scrolling pulls the arrow from one act to the
+   next. With JS off, or reduced motion on, every step is simply visible. */
+.flow{list-style:none; margin:22px 0 0; padding:0; counter-reset:none}
+.step{position:relative; display:grid; grid-template-columns:44px 1fr; gap:14px; padding-bottom:30px}
+.step:last-child{padding-bottom:0}
+.step .dot{position:relative; z-index:2; width:44px; height:44px; border-radius:50%;
+  display:grid; place-items:center; background:var(--bg2); border:1.5px solid var(--line2);
+  font-size:13px; font-weight:700; color:var(--yellow)}
+.step:last-child .dot{background:var(--yellow); border-color:var(--yellow); color:#1C0131}
+/* the connector */
+.step:not(:last-child)::before{content:""; position:absolute; left:21px; top:46px; bottom:10px; width:2px;
+  background:linear-gradient(180deg, var(--yellow), rgba(246,223,42,.25));
+  transform:scaleY(0); transform-origin:top; transition:transform .55s ease .05s}
+/* the arrowhead */
+.step:not(:last-child)::after{content:""; position:absolute; left:16px; bottom:4px; width:10px; height:10px;
+  border-right:2px solid rgba(246,223,42,.6); border-bottom:2px solid rgba(246,223,42,.6);
+  transform:rotate(45deg) scale(0); transition:transform .3s ease .5s}
+.step.in::before{transform:scaleY(1)}
+.step.in::after{transform:rotate(45deg) scale(1)}
+.step .bd{opacity:0; transform:translateY(12px); transition:opacity .5s ease, transform .5s ease}
+.step.in .bd{opacity:1; transform:none}
+.step .when{display:block; font-size:11px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--yellow)}
+.step h3{font-size:clamp(19px,4.6vw,24px); font-weight:700; margin:5px 0 0}
+.step p{font-size:14.5px; color:var(--muted); margin:7px 0 0; line-height:1.5}
+.step .jump{display:inline-block; margin-top:9px}
+@media (prefers-reduced-motion:reduce){
+  .step .bd{opacity:1; transform:none}
+  .step::before{transform:scaleY(1)} .step::after{transform:rotate(45deg) scale(1)}
+}
+@media (min-width:860px){
+  .flow{display:grid; grid-template-columns:repeat(3,1fr); gap:26px}
+  .step{grid-template-columns:1fr; padding-bottom:0}
+  .step .dot{margin-bottom:14px}
+  .step:not(:last-child)::before{left:56px; right:-26px; top:21px; bottom:auto; width:auto; height:2px;
+    background:linear-gradient(90deg, var(--yellow), rgba(246,223,42,.25)); transform:scaleX(0); transform-origin:left}
+  .step.in:not(:last-child)::before{transform:scaleX(1)}
+  .step:not(:last-child)::after{left:auto; right:-24px; top:16px; bottom:auto}
+}
+
+/* ── the series still now fills the top of the card ── */
+.troy .pic{aspect-ratio:auto; border-radius:0; border:0; min-height:0; order:-1}
+.troy .pic img{position:absolute; inset:0; object-position:50% 26%}
+@media (max-width:720px){
+  .troy{grid-template-columns:1fr}
+  .troy .pic{position:relative; aspect-ratio:3/2; min-height:0}
+}
+@media (min-width:721px){
+  .troy{grid-template-columns:1fr 1fr}
+  .troy .pic{order:0}
+}
+
+/* ── the cast, sliding left to right ── */
+.castrail{display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory;
+  margin-top:18px; padding:2px max(16px,env(safe-area-inset-left,0px)) 10px;
+  -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.castrail::-webkit-scrollbar{display:none}
+.cm{flex:0 0 150px; scroll-snap-align:start}
+.cm .ph{aspect-ratio:4/5; border-radius:16px; overflow:hidden; position:relative;
+  background:var(--bg2); border:1px solid var(--line)}
+.cm .ph img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:50% 16%}
+.cm.soon .ph{display:grid; place-items:center; border-style:dashed}
+.cm.soon .ph span{font-size:11px; letter-spacing:.11em; text-transform:uppercase; color:rgba(255,255,255,.34)}
+.cm .nm{font-size:15.5px; font-weight:700; margin-top:10px}
+.cm .rl{font-size:11.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--yellow); margin-top:3px}
+.cm.soon .nm{color:var(--muted)}
+@media (min-width:860px){ .castrail{padding-inline:calc((100vw - min(1100px,100vw - 32px)) / 2)} .cm{flex-basis:178px} }
+
+/* ── two ways in ── */
+.two{display:grid; grid-template-columns:1fr; gap:11px; margin-top:18px}
+@media (min-width:720px){ .two{grid-template-columns:1fr 1fr} }
+.opt{display:block; text-decoration:none; color:inherit; background:var(--bg2);
+  border:1px solid var(--line); border-radius:18px; padding:20px 18px; transition:border-color .15s ease, transform .15s ease}
+.opt:hover{border-color:var(--yellow); transform:translateY(-2px)}
+.opt .ic{display:grid; place-items:center; width:42px; height:42px; border-radius:12px;
+  background:rgba(246,223,42,.12); color:var(--yellow); margin-bottom:13px}
+.opt .ic svg{width:21px; height:21px}
+.opt h3{font-size:19px; font-weight:700; margin:0}
+.opt p{font-size:14px; color:var(--muted); margin:7px 0 0; line-height:1.5}
+.opt .go{display:inline-block; margin-top:12px; font-size:14px; font-weight:700; color:var(--yellow)}
+.opt .go::after{content:" \2192"}
