@@ -230,8 +230,11 @@
           <input type="email" id="nemail" name="email" placeholder="Your email" autocomplete="email" inputmode="email">
           <button class="btn" type="submit">Keep me posted</button>
         </form>
+        <!-- form="news" ties this to the form above even though it sits
+             outside it. Without it the form never sees the checkbox and
+             the cross opt in is always false. -->
         <label class="chk" for="ncross">
-          <input type="checkbox" id="ncross" name="cross">
+          <input type="checkbox" id="ncross" name="cross" form="news">
           <span>Also send me new episodes of The Risk of You.</span>
         </label>
       </div>
