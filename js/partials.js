@@ -136,8 +136,20 @@ window.LR = (function () {
     });
   }
 
+  /* The court's fit is four CSS variables. Config wins over the stylesheet so
+     the gap can be tuned without touching css/lr.css. */
+  function court() {
+    var c = C.COURT, root = document.documentElement.style, map = {
+      side: '--court-side', gapBelow: '--court-gap', navH: '--court-nav', hudH: '--court-hud'
+    };
+    if (!c) return;
+    Object.keys(map).forEach(function (k) {
+      if (c[k] !== null && c[k] !== undefined && c[k] !== '') root.setProperty(map[k], parseFloat(c[k]) + 'px');
+    });
+  }
+
   function boot() {
-    mount(); wireSignup();
+    court(); mount(); wireSignup();
     var el = document.getElementById('layer');
     if (el) {
       el.querySelector('.btn').addEventListener('click', closeLayer);
@@ -153,6 +165,54 @@ window.LR = (function () {
       i.addEventListener('error', drop);
       if (i.complete && !i.naturalWidth) drop();
     });
+
+    revealFlow();
+  }
+
+  /* The three acts under "How the day goes" draw their connector and lift
+     their text as each one scrolls into view, so the eye is pulled from
+     games to speed dating to the party rather than reading three tiles.
+     Everything it does is adding one class. If IntersectionObserver is
+     missing, or the visitor asked for reduced motion, every step is simply
+     shown at once, which is what the CSS already falls back to. */
+  function revealFlow() {
+    var steps = document.querySelectorAll('.flow .step');
+    if (!steps.length) return;
+
+    var still = false;
+    try { still = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+
+    if (still || !('IntersectionObserver' in window)) {
+      [].forEach.call(steps, function (s) { s.classList.add('in'); });
+      return;
+    }
+
+    var show = function (el) { el.classList.add('in'); };
+
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        show(en.target);
+        io.unobserve(en.target);          // it only ever happens once
+      });
+    }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+
+    [].forEach.call(steps, function (s) {
+      /* Anything already on screen at load, or already scrolled past
+         because the visitor arrived on an anchor, is shown at once
+         rather than waiting for an intersection that never comes. */
+      if (s.getBoundingClientRect().top < window.innerHeight) show(s);
+      else io.observe(s);
+    });
+
+    /* The safety net. A fast flick can carry a step through the viewport
+       between two observer callbacks, and a step that never gets the
+       class stays at opacity 0. This animation is decoration; the words
+       are not. After four seconds anything still hidden is shown. */
+    setTimeout(function () {
+      [].forEach.call(steps, function (s) { show(s); });
+      io.disconnect();
+    }, 4000);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
