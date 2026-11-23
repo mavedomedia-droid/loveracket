@@ -27,7 +27,6 @@
 <header class="nav" id="nav"></header>
 
 <main id="home">
-
   <!-- PARTY HERO -->
   <section class="hero">
     <div class="shot" aria-hidden="true"><img src="assets/hero-court.jpg" alt=""></div>
@@ -56,23 +55,14 @@
     </div>
   </section>
 
-  <!-- THE DAY -->
-  <section class="sec" id="attractions" style="padding-top:20px">
-    <div class="wrap">
-      <div class="st">Side attractions</div>
-      <div class="sh">How the day goes.</div>
-      <div class="day">
-        <div class="card play"><div class="tm">FIRST</div><h3>Games</h3><p>Tennis. Padel. The Dare Wall. Games to break the ice.</p><a class="jump" href="#court">Warm up now, play the game</a><span class="big">01</span></div>
-        <div class="card"><div class="tm">THEN</div><h3>Speed dating</h3><p>Curated and intentional. Where the falling begins.</p><span class="big">02</span></div>
-        <div class="card"><div class="tm">AFTER THAT</div><h3>Party into the night</h3><p>The doors open wider, and the music runs late.</p><span class="big">03</span></div>
-      </div>
-    </div>
-  </section>
 
-  <!-- SCALE BAND -->
-  <section class="band">
-    <img src="assets/court-band.jpg" alt="Two guests on the court at Love Racket">
-    <div class="bt">
+  <!-- ABOUT -->
+  <section class="sec flush" id="about" style="padding-top:34px">
+    <div class="wrap">
+      <div class="st">About</div>
+      <div class="sh">A Love Racket.</div>
+      <p class="sp lede">An experiential event from <b>The Risk of You</b>, the vertical drama starring Ramsey Nouah. On 29 December, 500 singles meet over tennis, games and speed dating. Then 5,000 more arrive, and the night turns into a party.</p>
+      <p class="sp">Built for people who would rather meet someone across a court than across an app.</p>
       <div class="nums2">
         <div><b>500</b><span>speed dating guests</span></div>
         <div><b>5,000+</b><span>party target</span></div>
@@ -81,8 +71,42 @@
     </div>
   </section>
 
-  <!-- LINEUP: removed while the lineup is still private. The .acts and .act
-       styles stay in lr.css, so pasting this block back is the only step. -->
+  <!-- HOW THE DAY GOES -->
+  <section class="sec" id="attractions">
+    <div class="wrap">
+      <div class="st">Side attractions</div>
+      <div class="sh">How the day goes.</div>
+      <p class="sp">One night, three acts. Each one opens as the last one closes.</p>
+
+      <ol class="flow" id="flow">
+        <li class="step">
+          <span class="dot" aria-hidden="true"><b>01</b></span>
+          <div class="bd">
+            <span class="when">2PM &middot; doors open</span>
+            <h3>Play first</h3>
+            <p>Tennis. Padel. The Dare Wall. Games designed to break the ice before the real connections start.</p>
+            <a class="jump" href="#court">Warm up now, play the game</a>
+          </div>
+        </li>
+        <li class="step">
+          <span class="dot" aria-hidden="true"><b>02</b></span>
+          <div class="bd">
+            <span class="when">5PM to 8PM &middot; 500 singles</span>
+            <h3>Speed dating</h3>
+            <p>Curated and intentional. The tennis icebreakers, the tables, the Dare Wall. This is where the falling begins.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="dot" aria-hidden="true"><b>03</b></span>
+          <div class="bd">
+            <span class="when">9PM to 5AM &middot; 5,000+ guests</span>
+            <h3>The party</h3>
+            <p>The doors open wider and the music runs late. The 500 become the inner circle. The 5,000 become the moment.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
 
   <!-- THE GAME -->
   <section class="sec playsec" id="play">
@@ -140,6 +164,7 @@
       <div class="st">The story behind the event</div>
       <div class="sh">The Risk of You</div>
       <div class="troy">
+        <div class="pic"><img src="assets/troy-still.jpg" alt="The Risk of You"></div>
         <div class="t">
           <p>When Win, a flirty 25 year old tennis player, bets she can make Kunle, a stoic 50 year old widower, fall for her, she doesn't expect to fall first. Or to discover he's her estranged father's business partner.</p>
           <div class="nums">
@@ -152,59 +177,69 @@
             <a class="btn troy-link" href="#">Watch the series</a>
           </div>
         </div>
-        <div class="pic"><img src="assets/troy-still.jpg" alt="The Risk of You"></div>
       </div>
+    </div>
+  </section>
 
-      <!-- CAST -->
-      <div class="st" style="margin-top:40px">The cast</div>
+  <!-- CAST -->
+  <section class="sec" id="cast" style="padding-top:12px">
+    <div class="wrap">
+      <div class="st">The cast</div>
       <div class="sh">The cast will be there.</div>
-
-      <div class="lead">
+      <p class="sp">The people you have been watching for ninety seconds a day, on the court on 29 December.</p>
+    </div>
+    <div class="castrail" id="castrail">
+      <div class="cm">
         <div class="ph"><img src="assets/ramsey.jpg" alt="Ramsey Nouah"></div>
-        <div class="lt">
-          <div class="nm">Ramsey Nouah</div>
-          <div class="rl">Plays Kunle</div>
-          <p>The stoic 50 year old widower at the centre of the story, on the court on 29 December.</p>
-        </div>
+        <div class="nm">Ramsey Nouah</div>
+        <div class="rl">Plays Kunle</div>
       </div>
-
-      <p class="sp" style="margin-top:14px">More of the cast announced before the night.</p>
+      <div class="cm soon"><div class="ph"><span>Announced soon</span></div><div class="nm">To be announced</div><div class="rl">Plays Win</div></div>
+      <div class="cm soon"><div class="ph"><span>Announced soon</span></div><div class="nm">To be announced</div><div class="rl">Supporting</div></div>
+      <div class="cm soon"><div class="ph"><span>Announced soon</span></div><div class="nm">To be announced</div><div class="rl">Supporting</div></div>
     </div>
   </section>
 
-  <!-- ====================================================================
-       LINEUP. Commented out because you said the lineup is still private.
-       The photos are already in assets/. To publish it, delete this
-       opening comment line and the closing one at the bottom of the block.
-       ==================================================================
-
-  <!~~ LINEUP. HOLD: stays commented out until Femi says the lineup is public. ~~>
-  <section class="sec" id="lineup" style="padding-top:28px">
+  <!-- WHAT YOU CAN DO -->
+  <section class="sec" id="next" style="padding-top:12px">
     <div class="wrap">
-      <div class="st">Live on the night</div>
-      <div class="sh">Lineup and appearances.</div>
-      <p class="sp">Live music, DJ sets and experiential activities across the day and night.</p>
-      <div class="cast" style="margin-top:18px">
-        <div class="mem"><div class="ph"><img src="assets/cast-chike.jpg" alt="Chike"></div><div class="nm">Chike</div><div class="rl">Live performance</div></div>
-        <div class="mem"><div class="ph"><img src="assets/cast-oxlade.jpg" alt="Oxlade"></div><div class="nm">Oxlade</div><div class="rl">Live performance</div></div>
-        <div class="mem"><div class="ph"><img src="assets/cast-lax.jpg" alt="L.A.X"></div><div class="nm">L.A.X</div><div class="rl">Live performance</div></div>
-        <div class="mem"><div class="ph"><img src="assets/cast-osas.jpg" alt="Osas Virtuosi"></div><div class="nm">Osas Virtuosi</div><div class="rl">Speed dating host</div></div>
+      <div class="st">What you can do</div>
+      <div class="sh">Two ways in.</div>
+      <div class="two">
+        <a class="opt tix-link" href="#">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2 2 2 0 0 0 0 4 2 2 0 0 1-2 2H5a2 2 0 0 1-2-2 2 2 0 0 0 0-4z"/><path d="M14 7v10" stroke-dasharray="2 3"/></svg></span>
+          <h3>Buy a ticket</h3>
+          <p>29 December, Queen's Park Lagos. From 2PM until dawn.</p>
+          <span class="go">Get tickets</span>
+        </a>
+        <a class="opt troy-link" href="#">
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M10.5 9.5 15 12l-4.5 2.5z" fill="currentColor" stroke="none"/></svg></span>
+          <h3>Watch the series</h3>
+          <p>The Risk of You. Ninety episodes, ninety seconds each.</p>
+          <span class="go">Watch now</span>
+        </a>
       </div>
     </div>
   </section>
 
-  -->
-
-  <!-- ROAD TO -->
-  <section class="sec" id="road" style="padding-top:12px">
+  <!-- NEWSLETTER -->
+  <section class="sec" style="padding-top:12px">
     <div class="wrap">
-      <div class="st">Road to 29 December</div>
-      <div class="sh">What happens between now and the night.</div>
-      <ol class="road">
-        <li><span class="when">Now</span><b>Episodes drop</b><i>90 of them, 90 seconds each, on TikTok and Reels.</i></li>
-        <li><span class="when">27 Dec, 12 noon</span><b>The board closes</b><i>Top 5 on the Love Racket game win a huge prize.</i></li>
-        <li class="last"><span class="when">29 Dec, from 2PM</span><b>A Love Racket</b><i>Queen's Park, Lagos. Tennis, speed dating, then the party.</i></li>
-      </ol>
+      <div class="news">
+        <div class="st" style="color:var(--yellow)">Stay updated</div>
+        <div class="sh">Be first to know.</div>
+        <p class="sp">Lineup reveals, when tiers open, and when the 500 is nearly full.</p>
+        <form id="news" novalidate>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+          <label for="nemail" style="position:absolute;left:-9999px">Email</label>
+          <input type="email" id="nemail" name="email" placeholder="Your email" autocomplete="email" inputmode="email">
+          <button class="btn" type="submit">Keep me posted</button>
+        </form>
+        <label class="chk" for="ncross">
+          <input type="checkbox" id="ncross" name="cross">
+          <span>Also send me new episodes of The Risk of You.</span>
+        </label>
+      </div>
     </div>
   </section>
 
@@ -219,7 +254,7 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- QUESTIONS -->
   <section class="sec" id="faq" style="padding-top:12px">
     <div class="wrap">
       <div class="st">Questions</div>
@@ -235,26 +270,24 @@
     </div>
   </section>
 
-  <!-- NEWSLETTER -->
-  <section class="sec" style="padding-top:12px">
+  <!-- ====================================================================
+       ROAD TO 29 DECEMBER. Taken out of the flow because it was not in the
+       running order you gave me. Paste it back anywhere and it works: the
+       .road styles are still in lr.css.
+       ==================================================================
+
+  <section class="sec" id="road" style="padding-top:12px">
     <div class="wrap">
-      <div class="news">
-        <div class="st" style="color:var(--yellow)">Newsletter</div>
-        <div class="sh">Subscribe to our newsletter.</div>
-        <p class="sp">Give us your email for updates, lineup reveals and other fun stuff.</p>
-        <form id="news" novalidate>
-          <input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
-          <label for="nemail" style="position:absolute;left:-9999px">Email</label>
-          <input type="email" id="nemail" name="email" placeholder="Your email" autocomplete="email" inputmode="email">
-          <button class="btn" type="submit">Keep me posted</button>
-        </form>
-        <label class="chk" for="ncross">
-          <input type="checkbox" id="ncross" name="cross">
-          <span>Also send me new episodes of The Risk of You.</span>
-        </label>
-      </div>
+      <div class="st">Road to 29 December</div>
+      <div class="sh">What happens between now and the night.</div>
+      <ol class="road">
+        <li><span class="when">Now</span><b>Episodes drop</b><i>90 of them, 90 seconds each, on TikTok and Reels.</i></li>
+        <li><span class="when">27 Dec, 12 noon</span><b>The board closes</b><i>Top 5 on the Love Racket game win a huge prize.</i></li>
+        <li class="last"><span class="when">29 Dec, from 2PM</span><b>A Love Racket</b><i>Queen's Park, Lagos. Tennis, speed dating, then the party.</i></li>
+      </ol>
     </div>
   </section>
+  -->
 
   <!-- TICKETS -->
   <section class="tix feltbg" id="tickets">
